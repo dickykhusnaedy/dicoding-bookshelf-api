@@ -72,7 +72,13 @@ const addBookHandler = (request, h) => {
 const getBookHandler = () => ({
   status: 'success',
   data: {
-    books,
+    book: books.map((n) => {
+      return {
+        id: n.id,
+        name: n.name,
+        publisher: n.author,
+      };
+    }),
   },
 });
 
